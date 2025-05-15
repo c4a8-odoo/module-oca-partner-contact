@@ -14,10 +14,7 @@
                 <attribute name="required" add="(not lastname2)" separator=" and " />
             </field>
             <field name="lastname" position="after">
-                <field
-                    name="lastname2"
-                    required="not firstname and not lastname and not is_company and type == 'contact'"
-                />
+                <field name="lastname2" required="not lastname and is_individual" />
             </field>
         </field>
     </record>
@@ -33,10 +30,7 @@
                 <attribute name="required" add="(not lastname2)" separator=" and " />
             </field>
             <field name="lastname" position="after">
-                <field
-                    name="lastname2"
-                    required="not lastname2 and not lastname and not is_company and type == 'contact'"
-                />
+                <field name="lastname2" required="not lastname and is_individual" />
             </field>
             <!-- Inner contact form of child_ids -->
             <xpath
@@ -55,10 +49,7 @@
                 expr="//field[@name='child_ids']/form//field[@name='lastname']"
                 position="after"
             >
-                <field
-                    name="lastname2"
-                    required="not lastname2 and not lastname and not is_company and type == 'contact'"
-                />
+                <field name="lastname2" required="not lastname and is_individual" />
             </xpath>
         </field>
     </record>

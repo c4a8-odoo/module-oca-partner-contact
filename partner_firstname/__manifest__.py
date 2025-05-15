@@ -18,7 +18,7 @@
     "maintainer": "Camptocamp, Acsone",
     "category": "Extra Tools",
     "website": "https://github.com/OCA/partner-contact",
-    "depends": ["base_setup"],
+    "depends": ["base_setup", "partner_type_base"],
     "post_init_hook": "post_init_hook",
     "data": [
         "views/base_config_view.xml",
