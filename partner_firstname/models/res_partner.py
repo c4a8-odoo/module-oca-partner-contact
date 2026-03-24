@@ -5,7 +5,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import logging
 
-from odoo import _, api, fields, models
+from odoo import _, api, models
+
+from .. import exceptions
 
 _logger = logging.getLogger(__name__)
 
@@ -15,18 +17,6 @@ class ResPartner(models.Model):
 
     _name = "res.partner"
     _inherit = ["res.partner", "firstname.mixin"]
-
-    firstname = fields.Char("First name", index=True)
-
-    lastname = fields.Char("Last name", index=True)
-
-    name = fields.Char(
-        compute="_compute_name",
-        inverse="_inverse_name_after_cleaning_whitespace",
-        required=False,
-        store=True,
-        readonly=False,
-    )
 
     # @api.depends(lambda self: self._get_fields_depend_firstname_lastname_required())
     def _compute_firstname_lastname_required(self):
@@ -43,6 +33,15 @@ class ResPartner(models.Model):
         res = super()._get_fields_depend_firstname_lastname_required()
         res += ["is_company", "type"]
         return res
+
+    @api.constrains("name", "is_company")
+    def _check_name(self):
+        for record in self.filtered("is_company"):
+            if not record.name:
+                raise exceptions.EmptyNamesError(record, self.env)
+        return super(
+            ResPartner, self.filtered(lambda r: not r.is_company)
+        )._check_name()
 
     @api.model_create_multi
     def create(self, vals_list):
