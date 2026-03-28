@@ -1,5 +1,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
 from odoo.addons.base_partner_company_group.tests.test_base_partner_company_group import (  # noqa: E501
     TestBasePartnerCompanyGroup,
 )
@@ -9,6 +10,7 @@ class TestAccountPartnerCompanyGroup(TestBasePartnerCompanyGroup):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         cls.company_group = cls.env["res.partner"].create(
             {"name": "Test Company Group", "is_company": True}
         )

@@ -8,7 +8,9 @@ class TestPartnerPurchaseManager(BaseCommon):
     def setUpClass(cls):
         super().setUpClass()
         cls.partner_model = cls.env["res.partner"]
-        cls.user = cls.env.ref("base.user_demo")
+        # Use system users that are always present (not demo data)
+        cls.user = cls.env.ref("base.user_admin")
+        cls.user2 = cls.env.ref("base.user_root")
 
     def test_assign_purchase_manager(self):
         """A purchase manager (res.users) can be assigned to a partner."""
@@ -24,13 +26,12 @@ class TestPartnerPurchaseManager(BaseCommon):
 
     def test_update_purchase_manager(self):
         """A partner's purchase manager can be changed."""
-        user2 = self.env.ref("base.user_admin")
         partner = self.partner_model.create(
             {"name": "Managed Supplier", "purchase_manager_id": self.user.id}
         )
         self.assertEqual(partner.purchase_manager_id, self.user)
-        partner.write({"purchase_manager_id": user2.id})
-        self.assertEqual(partner.purchase_manager_id, user2)
+        partner.write({"purchase_manager_id": self.user2.id})
+        self.assertEqual(partner.purchase_manager_id, self.user2)
 
     def test_clear_purchase_manager(self):
         """A partner's purchase manager can be cleared."""
