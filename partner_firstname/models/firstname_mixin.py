@@ -12,6 +12,17 @@ class FirstNameMixin(models.AbstractModel):
         " that have firstname / lastname fields."
     )
 
+    name = fields.Char(
+        compute="_compute_name",
+        inverse="_inverse_name_after_cleaning_whitespace",
+        required=False,
+        store=True,
+        readonly=False,
+    )
+
+    firstname = fields.Char("First name", index=True)
+    lastname = fields.Char("Last name", index=True)
+
     form_has_lastname_first = fields.Boolean(compute="_compute_form_has_lastname_first")
 
     firstname_required = fields.Boolean(compute="_compute_firstname_lastname_required")
@@ -164,7 +175,6 @@ class FirstNameMixin(models.AbstractModel):
         for record in self:
             if any(
                 [
-                    record.is_company and not record.name,
                     record.firstname_required and not record.firstname,
                     record.lastname_required and not record.lastname,
                 ]
