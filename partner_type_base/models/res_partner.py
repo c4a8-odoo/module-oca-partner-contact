@@ -1,6 +1,7 @@
 # Copyright 2024 Christopher Rogos (<https://www.glueckkanja.com>)
 
 from odoo import api, fields, models
+from odoo.osv import expression
 
 
 class ResPartner(models.Model):
@@ -22,6 +23,7 @@ class ResPartner(models.Model):
     )
     can_be_child = fields.Boolean(
         compute="_compute_contact_type",
+        search="_search_can_be_child",
         help="If true, the partner_id field is available.",
     )
 
@@ -44,3 +46,8 @@ class ResPartner(models.Model):
     @api.model
     def _search_can_be_parent(self, operator, value):
         return [("is_company", operator, value)]
+
+    @api.model
+    def _search_can_be_child(self, operator, value):
+        negated_operator = expression.TERM_OPERATORS_NEGATION[operator]
+        return [("is_company", negated_operator, value)]
