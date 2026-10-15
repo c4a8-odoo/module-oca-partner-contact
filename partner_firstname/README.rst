@@ -48,13 +48,14 @@ Configuration
 You can configure some common name patterns for the inverse function in
 Settings > General settings:
 
-- Lastname Firstname: For example 'Anderson Robert'
+-  Lastname Firstname: For example 'Anderson Robert'
 
-- Lastname, Firstname: For example 'Anderson, Robert'
+-  Lastname, Firstname: For example 'Anderson, Robert'
 
-- Firstname Lastname: For example 'Robert Anderson'
+-  Firstname Lastname: For example 'Robert Anderson'
 
-  |partner_names_order|
+   .. image:: https://raw.githubusercontent.com/OCA/partner-contact/19.0/partner_firstname/static/description/partner_names_order.png
+      :alt: partner_names_order
 
 After applying the changes, you can recalculate all partners name
 clicking "Recalculate names" button. Note: This process could take so
@@ -70,10 +71,8 @@ the format specified above.
 you can configure if firstname and / or lastname are required, in
 "Settings > General Settings":
 
-|partner_names_required_fields|
-
-.. |partner_names_order| image:: https://raw.githubusercontent.com/OCA/partner-contact/19.0/partner_firstname/static/description/partner_names_order.png
-.. |partner_names_required_fields| image:: https://raw.githubusercontent.com/OCA/partner-contact/19.0/partner_firstname/static/description/partner_names_required_fields.png
+.. image:: https://raw.githubusercontent.com/OCA/partner-contact/19.0/partner_firstname/static/description/partner_names_required_fields.png
+   :alt: partner_names_required_fields
 
 Usage
 =====
@@ -133,33 +132,33 @@ Authors
 Contributors
 ------------
 
-- Nicolas Bessi <nicolas.bessi@camptocamp.com>
-- Yannick Vaucher <yannick.vaucher@camptocamp.com>
-- Vincent Renaville <vincent.renaville@camptocamp.com>
-- Guewen Baconnier <guewen.baconnier@camptocamp.com>
-- Holger Brunn <hbrunn@terp.nl>
-- Jonathan Nemry <jonathan.nemry@acsone.eu>
-- Olivier Laurent <olivier.laurent@acsone.eu>
-- Sandy Carter <sandy.carter@savoirfairelinux.com>
-- Alexis de Lattre <alexis.delattre@akretion.fr>
-- Lorenzo Battistini <lorenzo.battistini@agilebg.com>
-- Hans Henrik Gabelgaard <hhg@gabelgaard.org>
-- Jairo Llopis <j.llopis@grupoesoc.es>
-- Adrien Peiffer <adrien.peiffer@acsone.eu>
-- Ronald Portier <ronald@therp.nl>
-- Sylvain Van Hoof
-- Pedro Baeza <pedro.baeza@serviciosbaeza.com>
-- Dave Lasley <dave@laslabs.com>
-- Graeme Gellatly <graeme@o4sb.com>
-- Laurent Mignon <laurent.mignon@acsone.eu>
-- Bjorn Billen <bjorn.billen@dynapps.be>
-- Aion Tech <https://aiontech.company/>:
+-  Nicolas Bessi <nicolas.bessi@camptocamp.com>
+-  Yannick Vaucher <yannick.vaucher@camptocamp.com>
+-  Vincent Renaville <vincent.renaville@camptocamp.com>
+-  Guewen Baconnier <guewen.baconnier@camptocamp.com>
+-  Holger Brunn <hbrunn@terp.nl>
+-  Jonathan Nemry <jonathan.nemry@acsone.eu>
+-  Olivier Laurent <olivier.laurent@acsone.eu>
+-  Sandy Carter <sandy.carter@savoirfairelinux.com>
+-  Alexis de Lattre <alexis.delattre@akretion.fr>
+-  Lorenzo Battistini <lorenzo.battistini@agilebg.com>
+-  Hans Henrik Gabelgaard <hhg@gabelgaard.org>
+-  Jairo Llopis <j.llopis@grupoesoc.es>
+-  Adrien Peiffer <adrien.peiffer@acsone.eu>
+-  Ronald Portier <ronald@therp.nl>
+-  Sylvain Van Hoof
+-  Pedro Baeza <pedro.baeza@serviciosbaeza.com>
+-  Dave Lasley <dave@laslabs.com>
+-  Graeme Gellatly <graeme@o4sb.com>
+-  Laurent Mignon <laurent.mignon@acsone.eu>
+-  Bjorn Billen <bjorn.billen@dynapps.be>
+-  Aion Tech <https://aiontech.company/>:
 
-  - Simone Rubino <simone.rubino@aion-tech.it>
+   -  Simone Rubino <simone.rubino@aion-tech.it>
 
-- `Digiteasy <https://www.digiteasy.at/>`__
+-  `Digiteasy <https://www.digiteasy.at/>`__
 
-  - Alvaro Estebanez
+   -  Alvaro Estebanez
 
 Maintainers
 -----------
