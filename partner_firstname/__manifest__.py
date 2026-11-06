@@ -19,7 +19,7 @@
     "license": "AGPL-3",
     "category": "Extra Tools",
     "website": "https://github.com/OCA/partner-contact",
-    "depends": ["base_setup"],
+    "depends": ["partner_type_base"],
     "post_init_hook": "post_init_hook",
     "data": [
         "data/ir_config_parameter.xml",
